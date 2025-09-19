@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미세플라스틱 환경 QUIZ</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webfontworld/NanumSquare/NanumSquare.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Start Screen -->
+      <section id="start-screen" class="view active">
+        <div class="hero">
+          <img id="hero-image" class="hero-image" src="1x/미세플라스틱_퀴즈게임_타이틀.png" alt="미세플라스틱 퀴즈게임 타이틀" />
+          <div class="hero-text">
+            <p class="hero-title-text">"작은 플라스틱, 큰 문제! 당신은 얼마나 알고 있을까?"</p>
+            <p class="hero-description">
+              매일 먹고, 입고, 쓰는 것들 속에<br>
+              보이지 않게 숨어든 미세플라스틱.<br>
+              어쩌면 지금 이 순간,<br>
+              당신의 몸속에도 들어와 있을지 몰라요.
+            </p>
+            <p class="hero-cta">자, 이제 퀴즈를 통해 확인해보세요.</p>
+          </div>
+        </div>
+        <form id="start-form" class="card">
+          <div class="form-grid">
+            <div class="field-group">
+              <select id="grade" name="grade" required>
+                <option value="">학년 선택</option>
+                <option value="4">4학년</option>
+                <option value="5">5학년</option>
+                <option value="6">6학년</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <select id="class" name="class" required>
+                <option value="">반 선택</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <input id="name" name="name" type="text" maxlength="20" placeholder="한글 이름을 입력하세요" autocomplete="off" required />
+            </div>
+          </div>
+          <div class="quiz-actions" style="justify-content:center;margin-top:16px;">
+            <button type="submit" class="primary" style="min-width:220px;margin:0 auto;">시작하기</button>
+          </div>
+        </form>
+        <div class="start-actions" style="text-align: center; margin: 20px 0;">
+          <button id="go-ranking-btn-start" class="secondary" type="button" style="min-width:220px; border-color: #5b7cff; color: #5b7cff;">랭킹 보기</button>
+        </div>
+        <div class="credit-text">
+          <div class="credit-maker">제작 : 2025 학부모회 / 제작지원 : 4-4 JHJ</div>
+          이 퀴즈는 환경운동연합의 미세플라스틱 실험실 탈출 퀴즈를 참고하여 제작되었습니다.
+        </div>
+      </section>
+
+      <!-- Quiz Screen -->
+      <section id="quiz-screen" class="view">
+        <div class="quiz-header">
+          <div id="quiz-progress" class="progress">1 / 7</div>
+          <div id="quiz-user" class="user-meta"></div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+        <div class="card">
+          <h2 id="question-text" class="question"></h2>
+          <div id="choices" class="choices"></div>
+          <p id="feedback" class="feedback" aria-live="polite"></p>
+          <img id="explain-figure" class="explain-figure" src="1x/character.png" alt="helper" hidden />
+          <div id="explanation" class="explanation" hidden></div>
+          <button id="next-btn" class="primary" type="button" hidden>다음 문제</button>
+        </div>
+        <div class="page-footer">
+          <button id="quiz-back-home-btn" class="plain-link" type="button">처음으로</button>
+        </div>
+      </section>
+
+      <!-- Result / Ranking Screen -->
+      <section id="result-screen" class="view">
+        <div class="card result-card" id="result-card">
+          <img src="1x/result_title.png" alt="결과" class="result-title-image" />
+          <p id="result-summary"></p>
+        </div>
+
+        <div class="result-actions" style="margin: 20px 0; justify-content: flex-end;">
+          <button id="back-home-btn" class="secondary dark">처음으로</button>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+          <img src="1x/leaderboard_title.png" alt="랭킹" class="ranking-title-image" />
+          <ol id="ranking-list" class="ranking-list"></ol>
+          <div id="pagination" class="pagination">
+            <div id="page-numbers" class="page-numbers"></div>
+          </div>
+        </div>
+
+        <div class="page-footer">
+          <button id="reset-ranking-btn" class="plain-link" type="button">랭킹 초기화</button>
+        </div>
+        <div class="credit-text">
+          <div class="credit-maker">제작 : 2025 학부모회 / 제작지원 : 4-4 JHJ</div>
+          이 퀴즈는 환경운동연합의 미세플라스틱 실험실 탈출 퀴즈를 참고하여 제작되었습니다.
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
